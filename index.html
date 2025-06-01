@@ -14,10 +14,28 @@
     border: 2px solid #1abc9c;
     box-shadow: 0 0 0 4px rgba(26, 188, 156, 0.5);
   }
+  
+  html, body {
+    height: 100%;
+    overflow: hidden; /* Fully hides scrollbar and prevents scroll */
+  }
+
+  .scrollable-content {
+    height: 100%;
+    overflow-y: scroll; /* Enables scroll inside this container */
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+
+  .scrollable-content::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
 
   </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 text-white font-sans relative scrollbar-hide ">
+<body class="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-800 text-white font-sans relative no-scrollbar scrollable-content">
+
+
 
   <!-- Blurred Background Image Layer -->
   <div class="absolute inset-0 z-0">
@@ -26,8 +44,9 @@
          class="w-full h-full object-cover blur-md opacity-30" />
   </div>
 
+
   <!-- NAVBAR -->
-  <nav class="bg-[#0a2540] shadow-md relative z-10">
+  <nav class="bg-[#0a2540] shadow-md relative z-10 fixed">
     <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center text-white">
       <div class="text-2xl font-bold text-[#1abc9c]">JS Utils</div>
       <div class="space-x-6 hidden md:flex">
